@@ -35,7 +35,14 @@
                             <!-- CURRENT DAY -->
                             <div class="card"> <span class="icon"><img src="https://www.weatherbit.io/static/img/icons/<%= weather.data[0].weather.icon %>.png" alt=""></span>
                                 <div class="title">
-                                    <p><%= weather.city_name %>, <%= weather.state_code %></p>
+                                    <!-- Display State/Country Code -->
+                                    <p><%= weather.city_name %>, 
+                                        <% if (isNaN(weather.state_code)) { %>
+                                            <%= weather.state_code %>
+                                        <% } else { %>
+                                            <%= weather.country_code %>
+                                        <% } %>
+                                        </p>
                                     <p class="desc"><em><%= weather.data[0].weather.description %></em></p>
                                 </div>
                                 <div class="temp"><%= Math.round(weather.data[0].temp) %><sup>&deg;</sup>C</div>
