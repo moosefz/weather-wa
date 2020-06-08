@@ -18,7 +18,7 @@ npm i express dotenv request ejs --save
 Once setup, execute the server using:
 
 ```
-node server.js
+node app.js
 ```
 
 Listening is currently setup for the process.env OR a local host of port 3000 (can be changed in the app.listen() route). Console will notify once server is running. 
