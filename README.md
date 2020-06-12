@@ -1,6 +1,5 @@
 # weather-wa
-Weather-WebApp using Weatherbit API
-Working demo: https://weather-wa-mfz.herokuapp.com/
+Weather-WebApp using Weatherbit API : https://weather-wa-mfz.herokuapp.com/
 
 ## Getting Started
 Ensure that you have a Node.js development environment installed. Download or clone this repository (weather-wa) to begin. You must install the following packages/modules for full functionality:
