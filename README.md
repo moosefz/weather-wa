@@ -15,6 +15,8 @@ These can all be downloaded in your node environment if NPM has been installed a
 npm i express dotenv request ejs --save
 ```
 
+You will need a Weatherbit API key. You can sign up for one here: https://www.weatherbit.io/account/create. Once your key is provisioned, edit the config.env file located in the config folder. Update the WBIO_API_KEY with your own API key. You will then be able to make API requests.
+
 Once setup, execute the server using:
 
 ```
