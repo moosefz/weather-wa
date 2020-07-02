@@ -1,5 +1,6 @@
 <!-- INDEX -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,90 +9,103 @@
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
+
 <body>
 
     <div class="container">
         <div class="media">
             <img src="images/weather-wa.png" class="mr-3" alt="...">
             <div class="media-body">
-              <h5 class="mt-0">WeatherApp</h5>
-              WeatherApp, created using Node.js, Express.js, and Weatherbit API for data requests. Provides current weather in requested location along with a 6-day outlook below. 
-              Use the following format to search for a location: <em>CityName</em> for International locations, <em>CityName, ProvinceFull</em> for Canadian locations, e.g. Windsor, Ontario.
-              <br>
-              Search for a location: 
+                <h5 class="mt-0">WeatherApp</h5>
+                WeatherApp, created using Node.js, Express.js, and Weatherbit API for data requests. Provides current
+                weather in requested location along with a 6-day outlook below.
+                Use the following format to search for a location: <em>CityName</em> for International locations,
+                <em>CityName, ProvinceFull</em> for Canadian locations, e.g. Windsor, Ontario.
+                <br>
+                Search for a location:
             </div>
-          </div>
+        </div>
         <form class="my-4 form-inline" action="/result" method="GET">
             <label for="location-in" class="sr-only">Location</label>
-            <input id="location-in" class="form-control mr-2 col" type="text" name="location" placeholder="Enter Location">        
+            <input id="location-in" class="form-control mr-2 col" type="text" name="location"
+                placeholder="Enter Location">
             <button class="btn btn-primary" type="submit">Go</button>
         </form>
 
         <!-- INITIAL -->
         <% if (typeof weather === 'undefined') { %>
-            <p>Weather card will appear here!</p>
-        <% } else { %> 
-            <div class="container d-flex justify-content-center">
-                <div class="weather">
+        <p>Weather card will appear here!</p>
+        <% } else { %>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- CURRENT DAY -->
+                <div class="wide-card">
                     <div class="row">
-                        <div class="col-sm-12">
-                            <!-- CURRENT DAY -->
-                            <div class="card"> <span class="icon"><img src="https://www.weatherbit.io/static/img/icons/<%= weather.data[0].weather.icon %>.png" alt=""></span>
-                                <div class="title">
-                                    <!-- Display State/Country Code -->
-                                    <p><%= weather.city_name %>, 
-                                        <% if (isNaN(weather.state_code)) { %>
-                                            <%= weather.state_code %>
-                                        <% } else { %>
-                                            <%= weather.country_code %>
-                                        <% } %>
-                                        </p>
-                                    <p class="desc"><em><%= weather.data[0].weather.description %></em></p>
-                                </div>
-                                <div class="temp"><%= Math.round(weather.data[0].temp) %><sup>&deg;</sup>C</div>
-                                <p><em>Feels Like <%= Math.round(weather.data[0].app_max_temp) %><sup>&deg;</sup>C</em></p>
-                                <div class="row">
-                                    <div class="col-3">
-                                        <div class="header">Humidity</div>
-                                        <div class="value"><%= weather.data[0].rh %>%</div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="header">Precip. Chance</div>
-                                        <div class="value"><%= Math.round(weather.data[0].pop) %>%</div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="header">Pressure</div>
-                                        <div class="value"><%= weather.data[0].pres %> kPa</div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="header">Wind</div>
-                                        <div class="value"><%= weather.data[0].wind_cdir %> <%= Math.round(weather.data[0].wind_spd) %> km/h</div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <!-- 6-DAY FORECAST -->
-                                <div class="row">
-                                    <% weather.data.forEach(function(day) { %> 
-                                        <div class="col-2">
-                                            <div class="date"><%= day.valid_date %></div>
-                                            <div class="forecast">
-                                                <div class="daily-icon"><img src="https://www.weatherbit.io/static/img/icons/<%= day.weather.icon %>.png" width="40" height="40" alt=""></div>
-                                                <div class="daily-desc"><%= day.weather.description %></div>
-                                                <div class="daily-block">
-                                                    <div class="daily-temp"><%= Math.round(day.high_temp) %> ↑ <%= Math.round(day.low_temp) %> ↓</div>
-                                                    <div class="daily-pop"><em><%= day.pop %>%</em></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <% }) %>
-                                </div>
+                        <div class="col-md-12">
+                            <div class="title">
+                                <!-- Display State/Country Code -->
+                                <p class="location"><%= weather.city_name %>,
+                                    <% if (isNaN(weather.state_code)) { %>
+                                    <%= weather.state_code %>
+                                    <% } else { %>
+                                    <%= weather.country_code %>
+                                    <% } %>
+                                </p>
                             </div>
-                            <p><em>As of <%= new Date().toLocaleString() %></em></p>
+                            <img src="https://www.weatherbit.io/static/img/icons/<%= weather.data[0].weather.icon %>.png">
+                            <p class="desc"><em><%= weather.data[0].weather.description %></em></p>
+                            <div class="temp"><%= Math.round(weather.data[0].temp) %><sup>&deg;</sup>C</div>
+                            <p><em>Feels Like <%= Math.round(weather.data[0].app_max_temp) %><sup>&deg;</sup>C</em></p>
+                        </div>  
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="header"> <strong>Humidity</strong></div>
+                            <div class="value"><%= weather.data[0].rh %>%</div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="header"> <strong>Precip. Chance</strong></div>
+                            <div class="value"><%= Math.round(weather.data[0].pop) %>%</div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="header"> <strong>Pressure</strong></div>
+                            <div class="value"><%= weather.data[0].pres %> kPa</div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="header"> <strong>Wind</strong></div>
+                            <div class="value"><%= weather.data[0].wind_cdir %>
+                                <%= Math.round(weather.data[0].wind_spd) %> km/h</div>
                         </div>
                     </div>
-        <% } %>
-        <p class="footer">Created by Mustafa Fawaz - 2020. Tested using Weatherbit API.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- 6-DAY FORECAST -->
+            <% weather.data.forEach(function(day) { %>
+            <div class="col-md-2">
+                <div class="small-card">
+                    <div class="date"> <strong><%= day.valid_date %></strong></div>
+                    <div class="forecast">
+                        <div class="daily-icon"><img src="https://www.weatherbit.io/static/img/icons/<%= day.weather.icon %>.png" width="40" height="40" alt=""></div>
+                        <div class="daily-desc"><%= day.weather.description %></div>
+                        <div class="daily-bottom">
+                            <div class="daily-temp"><%= Math.round(day.high_temp) %> ↑ <%= Math.round(day.low_temp) %> ↓ </div>
+                            <div class="daily-pop"><em><%= day.pop %>%</em></div>
+                        </div>
+                       
+                    </div>
+                </div> 
+            </div>
+            <% }) %>
+        </div>
+        <div class="date-time">
+            <p><em>As of <%= new Date().toLocaleString() %></em></p>
+        </div>
+       
     </div>
-    
+    <% } %>
+
 </body>
 </html>

@@ -1,7 +1,3 @@
-.container {
-    width: 800px;
-}
-
 .media {
     margin-top: 20px;
 }
@@ -23,12 +19,6 @@ body {
     vertical-align: middle
 }
 
-@media(max-width:767px) {
-    .container {
-        height: fit-content
-    }
-}
-
 #location-in {
     border: none;
     border-bottom: 1px solid black;
@@ -36,89 +26,77 @@ body {
     box-shadow: none;
 }
 
-.weather {
-    width: 85%
+.row {
+    padding: 0 15;
 }
 
-@media(max-width:767px) {
-    .weather {
-        width: 100%
-    }
+.col-md-12 {
+    align-items: center;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
-.card {
+.col-md-2 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.wide-card {
     padding: 1rem;
-    margin: 1.5rem 4vw;
-    border-radius: 1rem;
     background-color: rgba(238, 237, 237, 0.22);
-    border-color: rgba(238, 237, 237, 0.22);
-    box-shadow: 5px 6px 6px 2px #e9ecef;
-    text-align: center
-}
-
-@media(max-width:768px) {
-    .card {
-        margin: 1.5rem
-    }
-}
-
-
-.title {
-    justify-content: center;
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%)
-}
-
-.title p {
-    margin-bottom: 0.2rem;
-    font-size: 1.2rem
+    text-align: center;
+    border: 0.5px solid #CACACA;
 }
 
 .temp {
     font-size: 2.6rem;
-    margin-top: 0.4rem;
+    margin-top: 10px;
 }
 
+.small-card {
+    height: 225px;
+    padding: 1rem;
+    background-color: rgba(238, 237, 237, 0.22);
+    text-align: center;
+    border: 0.5px solid #CACACA;
+}
+
+.daily-bottom {
+    position: absolute;
+    bottom: 10;
+    left: 0;
+    right: 0;
+}
+
+.date-time {
+    margin-top: 25px;
+}
+
+.title p {
+    margin-bottom: 0.2rem;
+    font-size: 30px;
+}
 
 .desc {
     color: #6E6E6E;
+    margin-bottom: 0;
 }
 
-.col-3 {
-    padding: 0 0.2rem
+.date {
+    text-align: center;
 }
 
-.col-2 {
-    border-right: 1px solid #DDDDDD;
-    font-size: 0.9rem;
-}
-
-.col-2:last-child {
-    border-right: none;
-}
-
-.daily-block {
-    position: absolute;
-    width: 70%;
-    bottom: 0;
+.daily-icon {
     text-align: center;
 }
 
 .daily-desc {
-    margin-bottom: 60px;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
-.forecast img {
+.small-card img {
   margin: 15px 0px;
-}
-
-.icon {
-    align-self: flex-end;
-    margin-right: -2.5rem;
-    margin-top: -2rem;
-    z-index: 999
 }
 
 .time {
@@ -126,10 +104,6 @@ body {
     margin-right: -2.5rem;
     margin-top: -2rem;
     z-index: 999
-}
-
-.icon img {
-    width: 5rem
 }
 
 .daily-desc {
