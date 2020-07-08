@@ -12,18 +12,41 @@ body {
 }
 
 .container {
-    background-color: #ffffff;
+    max-width: 950px !important;
     border-color: #ffffff;
     align-items: center;
     border-radius: 1rem;
     vertical-align: middle
 }
 
-#location-in {
-    border: none;
-    border-bottom: 1px solid black;
-    border-radius: 0;
-    box-shadow: none;
+.card {
+    border-radius: 1rem !important;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.lead {
+    font-size: 1.1rem !important;
+}
+
+#wa-icon {
+    color: #0080ff;
+    text-align: center;
+    font-size: 90px;
+}
+
+.form-control {
+    border-radius: .55rem !important;
+}
+
+input[type=search]:focus {
+    box-shadow: none !important;
+}
+
+.location-input {
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 .row {
@@ -42,6 +65,7 @@ body {
 }
 
 .wide-card {
+    border-radius: 1rem;
     padding: 1rem;
     background-color: rgba(238, 237, 237, 0.22);
     text-align: center;
@@ -54,6 +78,7 @@ body {
 }
 
 .small-card {
+    border-radius: 0.50rem;
     height: 225px;
     padding: 1rem;
     background-color: rgba(238, 237, 237, 0.22);
@@ -116,5 +141,6 @@ body {
 }
 
 .footer {
+    
     font-size: 10px;
 }

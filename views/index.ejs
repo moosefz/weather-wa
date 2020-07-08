@@ -8,29 +8,50 @@
     <!-- BOOTSTRAP CDN -->
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/37a55e2025.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
     <div class="container">
-        <div class="media">
-            <img src="images/weather-wa.png" class="mr-3" alt="...">
-            <div class="media-body">
-                <h5 class="mt-0">WeatherApp</h5>
-                WeatherApp, created using Node.js, Express.js, and Weatherbit API for data requests. Provides current
-                weather in requested location along with a 6-day outlook below.
-                Use the following format to search for a location: <em>CityName</em> for International locations,
-                <em>CityName, ProvinceFull</em> for Canadian locations, e.g. Windsor, Ontario.
-                <br>
-                Search for a location:
+        <div id="top-row" class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="row card-body">
+                        <div id="wa-icon" class="col-md-2">
+                            <i class="fas fa-cloud-sun-rain"></i>
+                        </div>
+                        <div class="col-md-10">
+                            <h1 class="blue">WeatherApp</h1>
+                            <p class="lead"> WeatherApp, created using Node.js, Express.js, and Weatherbit API for data requests. Provides current
+                                weather in requested location along with a 6-day outlook below.
+                                Use the following format to search for a location: <em>CityName</em> for International locations,
+                                <em>CityName, ProvinceFull</em> for Canadian locations, e.g. Windsor, Ontario.
+                                <br></p>
+                        </div>  
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="location-input shadow-none" action="/result" method="GET">
+                                <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                                  <div class="input-group">
+                                    <input type="search" name="location" placeholder="Enter Location..." aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                                    <div class="input-group-append">
+                                      <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+                                    </div>
+                                  </div>
+                                </div>
+                            </form> 
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <form class="my-4 form-inline" action="/result" method="GET">
-            <label for="location-in" class="sr-only">Location</label>
-            <input id="location-in" class="form-control mr-2 col" type="text" name="location"
-                placeholder="Enter Location">
-            <button class="btn btn-primary" type="submit">Go</button>
-        </form>
+
+        <!-- Search Bar -->
+        
+            
 
         <!-- INITIAL -->
         <% if (typeof weather === 'undefined') { %>
